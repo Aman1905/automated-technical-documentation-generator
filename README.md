@@ -29,3 +29,5 @@ npm install
 ### Step 3: Integrate GPT for Documentation Generator
 
 - `generateDocumentation.js`: This script file will generate the details about the API in the documentation.
+- `swagger.json`: This is a sample file for an API with basic CRUD operations on a "User" resource. 
+- `userTest.js`: This is an example test file for testing the "User" API.
