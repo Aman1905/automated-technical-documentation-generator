@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>User API Documentation</h1>
+    <div id="documentation-container">
+        Loading documentation...
+    </div>
+
+    <script>
+        // Fetch the generated API documentation from the backend
+        fetch('/api/docs')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('documentation-container');
+                if (data.documentation) {
+                    // Display the documentation as preformatted text
+                    container.innerHTML = `<pre>${data.documentation}</pre>`;
+                } else {
+                    container.innerHTML = 'No documentation available';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching documentation:', error);
+                document.getElementById('documentation-container').textContent = 'Error loading documentation';
+            });
+    </script>
+</body>
+</html>
