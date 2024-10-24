@@ -31,15 +31,7 @@ function parseSwaggerFile(swaggerFilePath) {
 // Function to generate documentation
 async function generateDocs() {
     try {
-        const swaggerData = parseSwaggerFile(swaggerFilePath);
-        const testFileContent = readFileContent(testFilePath);
-
-        if (!swaggerData || !testFileContent) {
-            console.error('Failed to read Swagger data or test file content');
-            return;
-        }
-
-        const documentation = await generateDocumentation(swaggerData, testFileContent, apiKey);
+        const documentation = await generateDocumentation(swaggerFilePath, testFilePath, apiKey);
         console.log('Generated Documentation: \n', documentation);
     } catch (error) {
         console.error('Error generating documentation:', error);
